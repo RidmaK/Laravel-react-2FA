@@ -1,0 +1,90 @@
+.profile-info {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(89, 135, 242, 0.8);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.profile-info:hover {
+  background-color: rgba(48, 103, 233, 0.8);
+  border-radius: 50%;
+}
+
+.profile-drawer {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: 200px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.profile-drawer.open {
+  transform: translateY(-5px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.profile-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: #212121;
+  transition: all 0.3s;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.profile-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#headerComponent header {
+  width: 100%;
+  height: 80px;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+#headerComponent .sidebar-toggle-dark {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+  /* Show the toggle button */
+  margin-right: 20px;
+}
