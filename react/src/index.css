@@ -36,10 +36,7 @@ input:focus {
     border-color: #5b08a7;
 }
 
-.btn,
-.btn-add,
-.btn-edit,
-.btn-delete {
+.btn-auth {
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #5b08a7;
@@ -59,10 +56,13 @@ input:focus {
 
 .btn-add,
 .btn-edit,
+.btn-show,
 .btn-delete{
     padding: 0.5rem 0.75rem;
     font-size: 14px;
     border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 .btn-add {
     background-color: #00a762;
@@ -70,12 +70,20 @@ input:focus {
 .btn-delete {
     background-color: #b72424;
 }
+.btn-edit {
+    background-color: #5b08a7;
+}
 
 .btn:hover,
 .btn:active,
 .btn:focus {
-    background: #5b08a7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Add shadow effect */
 }
+
+
+.btn:active {
+    animation: lightning 0.2s ease;
+  }
 
 .text-center {
     text-align: center;
@@ -164,6 +172,28 @@ table > tbody > tr > td {
     text-decoration: none;
 }
 
+.password-input-container {
+    position: relative;
+  }
+  
+  .password-toggle-btn {
+    position: absolute;
+    top: 38%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-toggle-btn svg {
+    font-size: 1.2rem;
+  }
+
 /* Login/Signup form */
 
 #defaultLayout {
@@ -204,6 +234,16 @@ table > tbody > tr > td {
     }
 }
 
+/* Keyframes for the lightning effect */
+@keyframes lightning {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.9);
+    }
+    100% {
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
 /* Media Queries */
 
 /* Extra large devices (large desktops, 1024px and up) */
@@ -217,7 +257,7 @@ table > tbody > tr > td {
       font-size: 14px;
   }
 
-  .btn, .btn-add, .btn-edit, .btn-delete {
+  .btn, .btn-add, .btn-edit, .btn-show, .btn-delete {
       padding: 15px;
       font-size: 16px;
   }
@@ -244,7 +284,7 @@ table > tbody > tr > td {
       font-size: 14px;
   }
 
-  .btn, .btn-add, .btn-edit, .btn-delete {
+  .btn, .btn-add, .btn-edit,.btn-show, .btn-delete {
       padding: 14px;
       font-size: 16px;
   }
@@ -265,6 +305,7 @@ table > tbody > tr > td {
     margin-left: 240px;
   }
 
+
   #defaultLayout .content.shifted {
     margin-left: 0;
   }
@@ -280,7 +321,7 @@ table > tbody > tr > td {
       font-size: 13px;
   }
 
-  .btn, .btn-add, .btn-edit, .btn-delete {
+  .btn, .btn-add, .btn-edit,.btn-show, .btn-delete {
       padding: 12px;
       font-size: 15px;
   }
@@ -317,7 +358,7 @@ table > tbody > tr > td {
       font-size: 12px;
   }
 
-  .btn, .btn-add, .btn-edit, .btn-delete {
+  .btn, .btn-add, .btn-edit,.btn-show, .btn-delete {
       padding: 10px;
       font-size: 14px;
   }

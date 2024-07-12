@@ -1,18 +1,33 @@
-import { Link } from "react-router-dom";
-import "./index.css";
-import { useRef } from "react";
-import axiosClient from "../../axios-client";
-import { useStateContext } from "../../contexts/ContextProvider";
+import { Link } from 'react-router-dom';
+import { createRef, useState } from 'react';
+import { useStateContext } from '../../contexts/ContextProvider';
+import axiosClient from '../../axios-client';
+import Input from '../../components/common/Input';
+import PasswordInput from '../../components/common/PasswordInput';
+import Button from '../../components/common/Button';
 
 export default function Signup() {
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const phoneNumberRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const passwordConfirmationRef = useRef<HTMLInputElement>(null);
+  const nameRef = createRef<HTMLInputElement>();
+  const emailRef = createRef<HTMLInputElement>();
+  const phoneNumberRef = createRef<HTMLInputElement>();
+  const passwordRef = createRef<HTMLInputElement>();
+  const passwordConfirmationRef = createRef<HTMLInputElement>();
+  const { setUser, setToken } = useStateContext();
+  const [errors, setErrors] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const togglePasswordConfirmationVisibility = () => {
+    setShowPasswordConfirmation(!showPasswordConfirmation);
+  };
 
   const onSubmit = (ev: any) => {
     ev.preventDefault();
+
     const payload = {
       name: nameRef.current?.value,
       email: emailRef.current?.value,
@@ -20,63 +35,50 @@ export default function Signup() {
       password: passwordRef.current?.value,
       password_confirmation: passwordConfirmationRef.current?.value,
     };
-
-    const { setUser, setToken } = useStateContext();
-
-    axiosClient.post('/register',payload).then(({data}) => {
-      setToken(data.user);
-      setUser(data.token);
-    }).catch((err) => {
-      const response = err.response;
-      if(response && response.status === 422) {
-        console.log(response.data.errors)
-      }
-    })
+    axiosClient
+      .post('/register', payload)
+      .then(({ data }) => {
+        setUser(data.user);
+        setToken(data.token);
+      })
+      .catch((err) => {
+        const response = err.response;
+        if (response && response.status === 422) {
+          setErrors(response.data.errors);
+        }
+      });
   };
 
   return (
     <div className="login-signup-form animated fadeInDown">
       <div className="form">
         <form onSubmit={onSubmit}>
-          <h1 className="title">Signup for free</h1>
-          <input
-            ref={nameRef}
-            type="text"
-            name=""
-            id=""
-            placeholder="Full Name"
-          />
-          <input
-            ref={emailRef}
-            type="email"
-            name=""
-            id=""
-            placeholder="Email Address"
-          />
-          <input
-            ref={phoneNumberRef}
-            type="number"
-            name=""
-            id=""
-            placeholder="Phone Number"
-          />
-          <input
+          <h1 className="title">Signup for Free</h1>
+          {errors && (
+            <div className="alert">
+              {Object.keys(errors).map((key) => (
+                <p key={key}>{errors[key][0]}</p>
+              ))}
+            </div>
+          )}
+          <Input ref={nameRef} type="text" placeholder="Full Name" />
+          <Input ref={emailRef} type="email" placeholder="Email Address" />
+          <Input ref={phoneNumberRef} type="text" placeholder="Phone Number" />
+          <PasswordInput
             ref={passwordRef}
-            type="password"
-            name=""
-            id=""
             placeholder="Password"
+            showPassword={showPassword}
+            onTogglePasswordVisibility={togglePasswordVisibility}
           />
-          <input
+          <PasswordInput
             ref={passwordConfirmationRef}
-            type="password"
-            name=""
-            id=""
-            placeholder="Password Confirmation"
+            placeholder="Confirm Password"
+            showPassword={showPasswordConfirmation}
+            onTogglePasswordVisibility={togglePasswordConfirmationVisibility}
           />
-          <button type="submit" className="btn btn-block">Sign up</button>
+          <Button type="submit" label="Signup" btn="btn-block btn-auth" />
           <p className="message">
-            Allredy Registered? <Link to="/login">Sign in.</Link>
+            Already registered? <Link to="/login">Sign In</Link>
           </p>
         </form>
       </div>

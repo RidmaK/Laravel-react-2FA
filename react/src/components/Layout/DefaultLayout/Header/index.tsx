@@ -8,7 +8,7 @@ interface HeaderProps {
   isOpenDrawer: boolean;
   toggleSidebar: () => void;
   toggleProfileDrawer: () => void;
-  onLogout: () => void;
+  onLogout: any;
 }
 export default function HeaderSection({
   isOpenDrawer,
@@ -35,7 +35,7 @@ export default function HeaderSection({
             ref={drawerRef}
           >
             <Link to="#" className="profile-item">
-              <FaUserTie /> {user.name}
+              <FaUserTie /> {user?.name}
             </Link>
             <Link to="#" className="profile-item">
               <MdForwardToInbox /> Inbox

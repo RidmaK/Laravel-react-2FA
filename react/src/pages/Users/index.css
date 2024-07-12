@@ -1,0 +1,32 @@
+.user-action-link {
+    text-decoration: none;
+    font-weight: 800;
+}
+.user-action-link:hover {
+    color: blueviolet;
+}
+
+.table-container {
+    width: 100%; /* Set the desired width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Enable vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile devices */
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar */
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners for the scrollbar thumb */
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Color of the scrollbar thumb on hover */
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Color of the scrollbar track */
+  }

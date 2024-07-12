@@ -1,7 +1,6 @@
-
-#sidebarComponent .sidebar {
-  width: 240px;
-  background-color: #471769;
+#actionBarComponent .sidebar {
+  width: 540px;
+  background-color: #ffffff;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -9,13 +8,13 @@
   justify-content: flex-start;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   height: 100%;
-  z-index: 1002;
-  transform: translateX(0); /* Sidebar is visible by default */
+  z-index: 1003;
+  transform: translateX(100%); /* Sidebar is hidden by default */
 }
 
-#sidebarComponent .sidebar a {
+#actionBarComponent .sidebar a {
   display: block;
   padding: 0.75rem 1rem;
   border-radius: 6px;
@@ -24,22 +23,22 @@
   transition: all 0.2s;
 }
 
-#sidebarComponent .sidebar a:hover {
+#actionBarComponent .sidebar a:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.sidebar .active {
+#actionBarComponent .sidebar .active {
   background-color: rgba(0, 0, 0, 0.4); /* Adjust active link background color */
 }
 
-#sidebarComponent .brand-section {
+#actionBarComponent .brand-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-#sidebarComponent .brand {
+#actionBarComponent .brand {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +48,7 @@
   border-radius: 50%;
 }
 
-#sidebarComponent .sidebar-toggle {
+#actionBarComponent .sidebar-toggle {
   background: none;
   border: none;
   color: white;
@@ -58,28 +57,34 @@
   display: flex; /* Show the toggle button */
   float: right;
 }
+.action-header{
+  padding: 1rem;
+  font-size: 25px;
+  font-weight: 400;
+  background-color: rgb(228, 233, 237);
+  margin-bottom: 1rem;
+}
 
 /* Media Queries */
 
 /* Medium devices (tablets, 600px to 768px) */
 @media (max-width: 768px) {
 
-  #sidebarComponent .sidebar {
-    transform: translateX(-100%); /* Initially hide the sidebar */
+  #actionBarComponent .sidebar {
+    transform: translateX(100%); /* Initially hide the sidebar */
   }
 
-  #sidebarComponent .sidebar.open {
+  #actionBarComponent .sidebar.open {
     transform: translateX(0);
   }
 }
 
 @media (min-width: 769px) {
-  #sidebarComponent .sidebar.open {
+  #actionBarComponent .sidebar.open {
     transform: translateX(0); /* Ensure sidebar is visible */
   }
 
-  #sidebarComponent .sidebar.close {
-    transform: translateX(-240px); /* Slide out the sidebar */
+  #actionBarComponent .sidebar.close {
+    transform: translateX(100%); /* Slide out the sidebar */
   }
 }
-
