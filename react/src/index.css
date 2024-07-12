@@ -3,11 +3,22 @@
 * {
     box-sizing: border-box;
 }
-html, body, #root, #defaultLayout, #guestLayout {
+
+html,
+body,
+#root,
+#defaultLayout,
+#guestLayout {
     min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0;
 }
 
@@ -20,7 +31,8 @@ body {
     background-color: #f6f6f6;
 }
 
-input, textarea {
+input,
+textarea {
     outline: 0;
     background: #ffffff;
     width: 100%;
@@ -31,7 +43,8 @@ input, textarea {
     transition: all 0.3s;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     border-color: #5b08a7;
 }
 
@@ -56,19 +69,22 @@ input:focus, textarea:focus {
 .btn-add,
 .btn-edit,
 .btn-show,
-.btn-delete{
+.btn-delete {
     padding: 0.5rem 0.75rem;
     font-size: 14px;
     border-radius: 4px;
     color: #FFFFFF;
     cursor: pointer;
 }
+
 .btn-add {
     background-color: #00a762;
 }
+
 .btn-delete {
     background-color: #b72424;
 }
+
 .btn-edit {
     background-color: #5b08a7;
 }
@@ -76,13 +92,14 @@ input:focus, textarea:focus {
 .btn:hover,
 .btn:active,
 .btn:focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* Add shadow effect */
 }
 
 
 .btn:active {
     animation: lightning 0.2s ease;
-  }
+}
 
 .text-center {
     text-align: center;
@@ -97,6 +114,28 @@ input:focus, textarea:focus {
     margin-top: 0.5rem;
 }
 
+#users-table {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#users-table .card {
+    display: inline-block;
+    min-width: 100%;
+}
+
+#users-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#users-table th,
+#users-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
 .alert {
     padding: 1rem;
     background-color: #ff4040;
@@ -104,27 +143,36 @@ input:focus, textarea:focus {
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 }
+
 .users-container {
     position: relative;
 }
+
 .success {
     position: absolute;
-    top: 0px; /* Adjust as per your layout */
-    left: 100px; /* Adjust as per your layout */
+    top: -40px;
+    /* Adjust as per your layout */
+    left: 60px;
+    /* Adjust as per your layout */
     background-color: #4caf50;
     color: white;
     padding: 15px;
     border-radius: 5px;
-    animation: fadeInOut 3s ease-in-out; /* Animation definition */
+    animation: fadeInOut 3s ease-in-out;
+    z-index: 2000;
+    /* Animation definition */
 }
 
 @keyframes fadeInOut {
     0% {
         opacity: 0;
     }
-    10%, 90% {
+
+    10%,
+    90% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -180,9 +228,9 @@ input:focus, textarea:focus {
 
 .password-input-container {
     position: relative;
-  }
+}
 
-  .password-toggle-btn {
+.password-toggle-btn {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -194,11 +242,11 @@ input:focus, textarea:focus {
     padding: 0;
     display: flex;
     align-items: center;
-  }
+}
 
-  .password-toggle-btn svg {
+.password-toggle-btn svg {
     font-size: 1.2rem;
-  }
+}
 
 /* Login/Signup form */
 
@@ -207,14 +255,14 @@ input:focus, textarea:focus {
 }
 
 #defaultLayout .content {
-  flex: 1;
-  margin-left: 240px;
-  transition: margin-left 0.3s ease;
+    flex: 1;
+    margin-left: 240px;
+    transition: margin-left 0.3s ease;
 }
 
 #defaultLayout main {
-  padding: 2rem;
-  margin-top: 80px;
+    padding: 2rem;
+    margin-top: 80px;
 }
 
 .animated {
@@ -234,6 +282,7 @@ input:focus, textarea:focus {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -243,141 +292,183 @@ input:focus, textarea:focus {
 /* Keyframes for the lightning effect */
 @keyframes lightning {
     0% {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.9);
     }
+
     100% {
-      box-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
     }
-  }
+}
 
 /* Media Queries */
 
 /* Extra large devices (large desktops, 1024px and up) */
 @media (min-width: 1025px) {
-  body {
-      font-size: 14px;
-  }
-
-  input {
-      padding: 15px;
-      font-size: 14px;
-  }
-
-  .btn, .btn-add, .btn-edit, .btn-show, .btn-delete {
-      padding: 15px;
-      font-size: 16px;
-  }
-
-  .login-signup-form .form {
-      width: 60%;
-      padding: 34px;
-  }
+    body {
+        font-size: 14px;
+    }
 
 
-  #defaultLayout main {
-      padding: 2rem;
-  }
+    input {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .btn,
+    .btn-add,
+    .btn-edit,
+    .btn-show,
+    .btn-delete {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .login-signup-form .form {
+        width: 60%;
+        padding: 34px;
+    }
+
+
+    #defaultLayout main {
+        padding: 2rem;
+    }
 }
 
 /* Large devices (desktops, 768px to 1024px) */
 @media (max-width: 1024px) {
-  body {
-      font-size: 14px;
-  }
+    body {
+        font-size: 14px;
+    }
 
-  input {
-      padding: 14px;
-      font-size: 14px;
-  }
+    input {
+        padding: 14px;
+        font-size: 14px;
+    }
 
-  .btn, .btn-add, .btn-edit,.btn-show, .btn-delete {
-      padding: 14px;
-      font-size: 16px;
-  }
+    .btn,
+    .btn-add,
+    .btn-edit,
+    .btn-show,
+    .btn-delete {
+        padding: 14px;
+        font-size: 16px;
+    }
 
-  .login-signup-form .form {
-      width: 70%;
-      padding: 30px;
-  }
+    .login-signup-form .form {
+        width: 70%;
+        padding: 30px;
+    }
 
 
-  #defaultLayout main {
-      padding: 1.75rem;
-  }
+    #defaultLayout main {
+        padding: 1.75rem;
+    }
 }
 
 @media (min-width: 769px) {
-  #defaultLayout .content {
-    margin-left: 240px;
-  }
+    #defaultLayout .content {
+        margin-left: 240px;
+    }
 
-
-  #defaultLayout .content.shifted {
-    margin-left: 0;
-  }
+    #defaultLayout .content.shifted {
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 768px) {
-  body {
-      font-size: 13px;
-  }
+    body {
+        font-size: 13px;
+    }
 
-  input {
-      padding: 12px;
-      font-size: 13px;
-  }
+    input {
+        padding: 12px;
+        font-size: 13px;
+    }
 
-  .btn, .btn-add, .btn-edit,.btn-show, .btn-delete {
-      padding: 12px;
-      font-size: 15px;
-  }
 
-  .login-signup-form .form {
-      width: 100%;
-      padding: 25px;
-  }
+    #users-table {
+        max-width: 700px;
+    }
 
-  #defaultLayout .content {
-    margin-left: 0;
-  }
+    .btn,
+    .btn-add,
+    .btn-edit,
+    .btn-show,
+    .btn-delete {
+        padding: 12px;
+        font-size: 15px;
+    }
 
-  #defaultLayout main {
-    padding: 1.5rem;
-  }
+    .login-signup-form .form {
+        width: 100%;
+        padding: 25px;
+    }
+
+    #defaultLayout .content {
+        margin-left: 0;
+    }
+
+    #users-table {
+        max-width: 700px;
+    }
+
+    #defaultLayout main {
+        padding: 1.5rem;
+    }
 }
 
 /* Medium devices (tablets, 600px to 768px) */
+@media (min-width: 576px) {
+
+    .login-signup-form {
+        padding: 10px;
+    }
+
+    #users-table {
+        max-width: auto;
+    }
+}
+/* Medium devices (tablets, 600px to 768px) */
 @media (max-width: 576px) {
 
-  .login-signup-form {
-    padding: 10px;
-  }
+    .login-signup-form {
+        padding: 10px;
+    }
 }
+
 /* Small devices (phones, 600px and down) */
 @media (max-width: 360px) {
-  body {
-      font-size: 12px;
-  }
+    body {
+        font-size: 12px;
+    }
 
-  input {
-      padding: 10px;
-      font-size: 12px;
-  }
-
-  .btn, .btn-add, .btn-edit,.btn-show, .btn-delete {
-      padding: 10px;
-      font-size: 14px;
-  }
+    input {
+        padding: 10px;
+        font-size: 12px;
+    }
 
 
-  .login-signup-form .form {
-      width: 100%;
-      padding: 10px;
-  }
+    #users-table {
+        max-width: 330px;
+    }
+
+    .btn,
+    .btn-add,
+    .btn-edit,
+    .btn-show,
+    .btn-delete {
+        padding: 10px;
+        font-size: 14px;
+    }
 
 
-  #defaultLayout main {
-      padding: 1rem;
-  }
+    .login-signup-form .form {
+        width: 100%;
+        padding: 10px;
+    }
+
+
+    #defaultLayout main {
+        padding: 1rem;
+    }
 }
-

@@ -60,8 +60,8 @@ export default function UsersTable() {
     };
     return (
         <>
-        <div id="users-table" className="card animated fadeInDown">
-            <div>
+        <div id="users-table" >
+            <div className="card animated fadeInDown">
                 <table>
                     <thead>
                         <tr>

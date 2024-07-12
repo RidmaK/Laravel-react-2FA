@@ -12,6 +12,7 @@
   height: 100%;
   z-index: 1003;
   transform: translateX(100%); /* Sidebar is hidden by default */
+  overflow-y: scroll;
 }
 
 #actionBarComponent .sidebar a {

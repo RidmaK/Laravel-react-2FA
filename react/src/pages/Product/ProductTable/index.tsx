@@ -61,8 +61,8 @@ export default function ProductTable() {
     };
     return (
         <>
-        <div id="users-table" className="card animated fadeInDown">
-            <div>
+        <div id="users-table" >
+            <div className="card animated fadeInDown">
                 <table>
                     <thead>
                         <tr>
