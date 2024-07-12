@@ -20,19 +20,18 @@ body {
     background-color: #f6f6f6;
 }
 
-input {
+input, textarea {
     outline: 0;
     background: #ffffff;
     width: 100%;
     border: 2px solid #e6e6e6;
-    margin: 0 0 15px;
-    padding: 15px;
+    margin: 5px 0;
     box-sizing: border-box;
     font-size: 14px;
     transition: all 0.3s;
 }
 
-input:focus {
+input:focus, textarea:focus {
     border-color: #5b08a7;
 }
 
@@ -89,24 +88,6 @@ input:focus {
     text-align: center;
 }
 
-table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-table > thead > tr > th {
-    text-align: left;
-    padding: 0.5rem 0.5rem;
-    background-color: #efefef;
-}
-
-table > tbody > tr > td {
-    padding: 0.5rem 0.5rem;
-    border-bottom: 1px solid #efefef;
-    white-space: nowrap;
-}
-
 .card {
     background-color: #FFF;
     border-radius: 0.5rem;
@@ -122,6 +103,31 @@ table > tbody > tr > td {
     color: white;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+}
+.users-container {
+    position: relative;
+}
+.success {
+    position: absolute;
+    top: 0px; /* Adjust as per your layout */
+    left: 100px; /* Adjust as per your layout */
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    animation: fadeInOut 3s ease-in-out; /* Animation definition */
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .notification {
@@ -175,10 +181,10 @@ table > tbody > tr > td {
 .password-input-container {
     position: relative;
   }
-  
+
   .password-toggle-btn {
     position: absolute;
-    top: 38%;
+    top: 50%;
     right: 10px;
     transform: translateY(-50%);
     background: none;
@@ -189,7 +195,7 @@ table > tbody > tr > td {
     display: flex;
     align-items: center;
   }
-  
+
   .password-toggle-btn svg {
     font-size: 1.2rem;
   }
@@ -374,3 +380,4 @@ table > tbody > tr > td {
       padding: 1rem;
   }
 }
+

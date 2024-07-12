@@ -1,16 +1,16 @@
 import "./index.css";
-import EditUser from "./EditUser";
-import AddUser from "./AddUser";
+import EditProduct from "./EditProduct";
+import AddProduct from "./AddProduct";
 interface SidebarProps {
   isOpenAction: boolean;
   actionBarRef: any;
-  userId?: any;
+  productId?: any;
   type: any;
 }
 export default function Actionbar({
   isOpenAction,
   actionBarRef,
-  userId,
+  productId,
   type,
 }: SidebarProps) {
   return (
@@ -20,8 +20,8 @@ export default function Actionbar({
         ref={actionBarRef}
       >
         <div className="action-header">Take Action</div>
-        {type == "edit" ? (<EditUser userId={userId} />) :
-        (<AddUser />)}
+        {type == "edit" ? (<EditProduct productId={productId} />) :
+        (<AddProduct />)}
       </aside>
     </div>
   );

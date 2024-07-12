@@ -3,6 +3,7 @@ import { createContext, useContext, useState, ReactNode } from "react";
 interface StateContextType {
   user: any;
   token: any;
+  load: any;
   notification: any;
   setUser: (user: any) => void;
   setToken: (token: any) => void;
@@ -15,6 +16,7 @@ interface ContextProviderProps {
 const StateContext = createContext<StateContextType>({
   user: null,
   token: null,
+  load: null,
   notification: null,
   setUser: () => {},
   setToken: () => {},
@@ -30,6 +32,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     localStorage.getItem("ACCESS_TOKEN")
   );
   const [notification, _setNotification] = useState('');
+  const [load, _setLoad] = useState<boolean>(false);
 
   const setToken = (token: any) => {
     _setToken(token);
@@ -42,6 +45,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 
   const setNotification = (message: any) => {
     _setNotification(message);
+    _setLoad(!load);
 
     setTimeout(() => {
       _setNotification('')
@@ -49,7 +53,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   }
 
   return (
-    <StateContext.Provider value={{ user, token, setUser, setToken,
+    <StateContext.Provider value={{ user, token, load, setUser, setToken,
       notification,
       setNotification }}>
       {children}

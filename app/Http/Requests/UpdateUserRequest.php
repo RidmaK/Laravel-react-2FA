@@ -24,15 +24,27 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:55',
             'email' => 'required|email|unique:users,email,'.$this->id,
-            'password' => [
+            'phone_number' => [
+                'required',
+                'string',
+                'regex:/^(\+94|0)?7[0-9]{8}$/',
+                'unique:users,phone_number,' . $this->id
+            ],
+        ];
+
+        // Only apply password validation if 'password' is present in the request
+        if ($this->filled('password')) {
+            $rules['password'] = [
                 'confirmed',
                 Password::min(8)
                     ->letters()
                     ->symbols(),
-            ]
-        ];
+            ];
+        }
+
+        return $rules;
     }
 }

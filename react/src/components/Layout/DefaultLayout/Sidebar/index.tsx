@@ -38,6 +38,9 @@ export default function Sidebar({
         <NavLink to="/users" className={`sidebar-link ${isActive("/users")}`}>
           Users{" "}
         </NavLink>
+        <NavLink to="/products" className={`sidebar-link ${isActive("/products")}`}>
+          Products{" "}
+        </NavLink>
       </aside>
     </div>
   );

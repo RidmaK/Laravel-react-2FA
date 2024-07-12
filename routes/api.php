@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +23,6 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/get-user',[AuthController::class, 'getUser']);
     Route::post('/logout',[AuthController::class, 'logout']);
     Route::apiResource('/users',UserController::class);
+    Route::apiResource('/products', ProductController::class);
 });
 

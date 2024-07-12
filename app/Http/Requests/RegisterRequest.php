@@ -26,7 +26,12 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'phone_number' => ['required', 'string', 'unique:users,phone_number'],
+            'phone_number' => [
+                'required',
+                'string',
+                'regex:/^(\+94|0)?7[0-9]{8}$/',
+                'unique:users,phone_number,'
+            ],
             'password' => [
                 'required',
                 'confirmed',

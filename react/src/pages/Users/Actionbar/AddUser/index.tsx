@@ -3,13 +3,11 @@ import axiosClient from "../../../../axios-client";
 import Input from "../../../../components/common/Input";
 import PasswordInput from "../../../../components/common/PasswordInput";
 import Button from "../../../../components/common/Button";
+import './index.css';
 import { useStateContext } from "../../../../contexts/ContextProvider";
 
-interface Props {
-    userId: any;
-}
 
-export default function EditUser({ userId }: Props) {
+export default function AddUser() {
     const nameRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const phoneNumberRef = useRef<HTMLInputElement>(null);
@@ -35,24 +33,10 @@ export default function EditUser({ userId }: Props) {
         setShowPasswordConfirmation(!showPasswordConfirmation);
     };
 
-    useEffect(() => {
-        setErrors(null)
-        setSuccess(null)
-        axiosClient
-            .get(`/users/${userId}`)
-            .then(({ data }) => {
-                setUser(data?.data);
-            })
-            .catch((err) => {
-                console.error("Error fetching user:", err);
-            });
-    }, [userId]);
-
     const onSubmit = (ev: React.FormEvent) => {
         ev.preventDefault();
 
         const payload = {
-            id: userId,
             name: nameRef.current?.value,
             email: emailRef.current?.value,
             phone_number: phoneNumberRef.current?.value,
@@ -61,17 +45,22 @@ export default function EditUser({ userId }: Props) {
         };
 
         axiosClient
-            .put(`/users/${userId}`, payload)
+            .post(`/users/`, payload)
             .then(({ data }) => {
                 console.log("User updated successfully:", data);
                 setErrors(null)
-                setNotification("User updated successfully");
+                setNotification("User was successfully added");
+                setUser({
+                    name: "",
+                    email: "",
+                    phone_number: "",
+                });
             })
             .catch((err) => {
                 const response = err.response;
                 if (response && response.status === 422) {
                     setErrors(response.data.errors);
-                    setSuccess(null)
+                    setSuccess(null);
                 } else {
                     console.error("Error updating user:", err);
                 }
@@ -85,17 +74,9 @@ export default function EditUser({ userId }: Props) {
         }));
     };
 
-    const onDeleteClick = (user: any) => {
-        if (!window.confirm("Are you sure you want to delete this user?")) {
-            return;
-        }
-        axiosClient.delete(`/users/${user.id}`).then(() => {
-            setNotification("User was successfully deleted");
-        });
-    };
-
     return (
         <div className="form">
+            <h1 className="title">Add New User</h1>
             <form onSubmit={onSubmit}>
                 {errors && (
                     <div className="alert">
@@ -113,22 +94,22 @@ export default function EditUser({ userId }: Props) {
                 <Input
                     ref={nameRef}
                     type="text"
-                    placeholder="Full Name"
                     value={user.name}
+                    placeholder="Full Name"
                     onChange={(e) => handleChange("name", e.target.value)}
                 />
                 <Input
                     ref={emailRef}
                     type="email"
-                    placeholder="Email Address"
                     value={user.email}
+                    placeholder="Email Address"
                     onChange={(e) => handleChange("email", e.target.value)}
                 />
                 <Input
                     ref={phoneNumberRef}
                     type="text"
-                    placeholder="Phone Number"
                     value={user.phone_number}
+                    placeholder="Phone Number"
                     onChange={(e) =>
                         handleChange("phone_number", e.target.value)
                     }
@@ -147,10 +128,9 @@ export default function EditUser({ userId }: Props) {
                         togglePasswordConfirmationVisibility
                     }
                 />
-                <Button type="submit" label="Edit" btn="btn-edit btn-block" />
+                <br />
+                <Button type="submit" label="Add" btn="btn-edit btn-block" />
             </form>
-            <br />
-            <Button type="button" onClick={() => onDeleteClick(user)} label="Delete" btn="btn-delete btn-block" />
         </div>
     );
 }
