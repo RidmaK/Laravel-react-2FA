@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $products = Product::with('user')->where('user_id', $user->id)->get();
+        $products = Product::with('user')->where('user_id', $user->id)->paginate(10);
         return ProductResource::collection($products);
     }
 

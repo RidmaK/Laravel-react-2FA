@@ -23,6 +23,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/get-user',[AuthController::class, 'getUser']);
     Route::post('/logout',[AuthController::class, 'logout']);
     Route::apiResource('/users',UserController::class);
+    Route::get('/users/count', [UserController::class, 'getUserCount']);
     Route::apiResource('/products', ProductController::class);
 });
 

@@ -8,6 +8,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -17,8 +18,17 @@ class UserController extends Controller
     public function index()
     {
         return UserResource::collection(
-            User::query()->orderBy('id','desc')->paginate()
+            User::query()->orderBy('id','desc')->paginate(10)
         );
+    }
+
+    /**
+     * Get the total user count.
+     */
+    public function getUserCount()
+    {
+        $userCount = DB::table('users')->count();
+        return response()->json(['count' => $userCount], Response::HTTP_OK);
     }
 
     /**
