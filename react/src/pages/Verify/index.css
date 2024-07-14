@@ -1,0 +1,215 @@
+/* Container for the whole page */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+}
+
+/* Wrapper for the form content */
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 440px;
+    width: 100%;
+}
+
+
+
+/* Heading style */
+.heading {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Link style */
+.link {
+    display: block;
+    margin-bottom: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    text-align: center;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #0056b3;
+}
+
+/* Button style */
+.button {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Logout button style */
+.logout-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #111;
+}
+
+/* Subheading style */
+.subheading {
+    font-size: 1rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Input group style */
+.input-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 10px;
+}
+
+/* Input wrapper */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Input field style */
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    padding-left: 3rem;
+    background-color: #f1f5f9;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #4b5563;
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    outline: none;
+    border: 2px solid #000;
+}
+
+.input::placeholder {
+    color: #9ca3af;
+}
+
+/* Button group style */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Cancel button style */
+.button-cancel {
+    padding: 0.5rem 1rem;
+    background-color: white !important;
+    color: #333;
+    border: 1px solid #6b7280;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-cancel:hover {
+    background-color: #e5e7eb;
+    color: #000;
+}
+
+/* Submit button style */
+.button-submit {
+    padding: 0.5rem 1rem;
+    background-color: #000 !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-submit:hover {
+    background-color: #333;
+}
+
+.otp-inputs {
+    width: 42px;
+    height: 42px;
+    border-radius: 5px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+
+    .form-wrapper {
+        padding: 1.5rem;
+    }
+
+    .otp-inputs {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+    }
+
+    .button-group {
+        flex-direction: row;
+    }
+
+    .button-cancel,
+    .button-submit {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .form-wrapper {
+        max-width: 100%;
+    }
+
+    .heading {
+        font-size: 1.3rem;
+    }
+
+    .subheading {
+        font-size: 0.9rem;
+    }
+
+    .input {
+        padding: 0.5rem;
+        padding-left: 2rem;
+        font-size: 0.9rem;
+    }
+}

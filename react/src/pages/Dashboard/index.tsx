@@ -54,7 +54,7 @@ export default function Dashboard() {
     return (
         <div className="main">
             <div>
-                <div className="container pt-5">
+                <div className="container-dashboard pt-5">
                     <div className="c-dashboardInfo col-lg-3 col-md-6">
                         <div className="wrap">
                             <h4 className="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">

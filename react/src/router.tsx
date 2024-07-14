@@ -7,6 +7,8 @@ import DefaultLayout from "./components/Layout/DefaultLayout";
 import GuestLayout from "./components/Layout/GuestLayout";
 import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
+import Verify from "./pages/Verify";
+import { CreateMultiFactorAuthentication } from "./pages/Verify/CreateMultiFactorAuthentication";
 
 const route = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const route = createBrowserRouter([
       {
         path: '/signup',
         element:  <Signup />
+      },
+      {
+        path: '/verify-user',
+        element:  <Verify />
+      },
+      {
+        path: '/mfa',
+        element:  <CreateMultiFactorAuthentication />
       },
     ]
   },

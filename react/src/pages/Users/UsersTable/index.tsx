@@ -25,7 +25,6 @@ export default function UsersTable() {
         setIsOpenAction(false);
     }, [load]);
 
-
     const handleClickOutside = (event: MouseEvent) => {
         if (
             actionBarRef.current &&
@@ -62,7 +61,6 @@ export default function UsersTable() {
         setUsersId(id);
         setFormType("edit");
     };
-
 
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage);
@@ -123,24 +121,6 @@ export default function UsersTable() {
                         )}
                     </table>
                 </div>
-
-                <div className="pagination">
-                    <button
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                    >
-                        Previous
-                    </button>
-                    <span>
-                        Page {currentPage} of {totalPages}
-                    </span>
-                    <button
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                    >
-                        Next
-                    </button>
-                </div>
             </div>
             <Actionbar
                 isOpenAction={isOpenAction}
@@ -148,6 +128,23 @@ export default function UsersTable() {
                 userId={userId}
                 type={formType}
             />
+            <div className="pagination">
+                <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                >
+                    Previous
+                </button>
+                <span>
+                    Page {currentPage} of {totalPages}
+                </span>
+                <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                >
+                    Next
+                </button>
+            </div>
         </>
     );
 }

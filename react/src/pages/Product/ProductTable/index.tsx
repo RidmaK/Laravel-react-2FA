@@ -101,7 +101,9 @@ export default function ProductTable() {
                                             <Link
                                                 to="#"
                                                 className="user-action-link"
-                                                onClick={() => openActionView(p.id)}
+                                                onClick={() =>
+                                                    openActionView(p.id)
+                                                }
                                             >
                                                 {p.name}
                                             </Link>
@@ -116,21 +118,6 @@ export default function ProductTable() {
                         )}
                     </table>
                 </div>
-                <div className="pagination">
-                    <button
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                    >
-                        Previous
-                    </button>
-                    <span>Page {currentPage} of {totalPages}</span>
-                    <button
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                    >
-                        Next
-                    </button>
-                </div>
             </div>
             <Actionbar
                 isOpenAction={isOpenAction}
@@ -138,6 +125,23 @@ export default function ProductTable() {
                 productId={productId}
                 type={formType}
             />
+            <div className="pagination">
+                <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                >
+                    Previous
+                </button>
+                <span>
+                    Page {currentPage} of {totalPages}
+                </span>
+                <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                >
+                    Next
+                </button>
+            </div>
         </>
     );
 }
