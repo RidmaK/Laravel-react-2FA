@@ -3,6 +3,7 @@ import { enrollUser } from "../../firebase/authentication";
 import { notify } from "../../utils/notify";
 import { Code } from "./Code";
 import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 type Props = {
     currentUser: User,
@@ -11,6 +12,7 @@ type Props = {
 
 export function CodeSignup({ currentUser, verificationCodeId }: Props) {
     const navigate = useNavigate();
+    const { setOTP } = useStateContext();
 
     async function getCode(code: string) {
         console.log("Entered OTP code:", currentUser, verificationCodeId);
@@ -21,6 +23,7 @@ export function CodeSignup({ currentUser, verificationCodeId }: Props) {
         );
         console.log("Enrollment response:", response);
         if (response) {
+            setOTP(true);
             console.log("Navigating to dashboard...");
             navigate('/dashboard'); // Use navigate directly without await
         } else {

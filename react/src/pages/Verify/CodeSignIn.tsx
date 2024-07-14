@@ -3,6 +3,7 @@ import { verifyUserEnrolled } from "../../firebase/authentication";
 import { notify } from "../../utils/notify";
 import { Code } from "./Code";
 import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 type Props = {
     verificationId: string,
@@ -10,6 +11,7 @@ type Props = {
 }
 export function CodeSignIn({verificationId, resolver}: Props) {
     const router = useNavigate();
+    const { setOTP } = useStateContext();
 
     async function getCode(code: string) {
         const response = await verifyUserEnrolled(
@@ -21,6 +23,7 @@ export function CodeSignIn({verificationId, resolver}: Props) {
         );
 
         if (response) {
+            setOTP(true);
             await router('/dashboard');
         }else {
             notify('Something went wrong.');

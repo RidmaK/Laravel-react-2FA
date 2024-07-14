@@ -6,7 +6,7 @@ import HeaderSection from "./Header";
 import axiosClient from "../../../axios-client";
 
 export default function DefaultLayout() {
-  const { user, token, setUser, setToken } = useStateContext();
+  const { user, token,otp, setUser, setToken } = useStateContext();
   const [isOpen, setIsOpen] = useState<boolean>(window.innerWidth > 768);
   const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -14,10 +14,11 @@ export default function DefaultLayout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token) {
+    if (!token || !otp) {
       navigate("/login");
     }
-  }, [token]);
+    console.log(token,otp)
+  }, [token,otp]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
