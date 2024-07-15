@@ -1,4 +1,4 @@
-# Project Name
+# Implement a Web Application with Laravel Backend, React Frontend, and Firebase 2-Factor Authentication
 
 ## Overview
 
