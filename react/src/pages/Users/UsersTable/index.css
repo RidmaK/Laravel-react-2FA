@@ -7,14 +7,6 @@
     color: blueviolet;
 }
 
-
-#users-table .table-container {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    max-width: 100%; /* Ensure it doesn't overflow its container */
-    margin-bottom: 20px; /* Provide some space below the table */
-}
-
-
 #users-table  table {
     width: 100%;
     border-spacing: 0;
