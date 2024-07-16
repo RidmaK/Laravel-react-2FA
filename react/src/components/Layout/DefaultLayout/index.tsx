@@ -14,11 +14,10 @@ export default function DefaultLayout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token || !otp) {
+    if (!token) {
       navigate("/login");
     }
-    console.log(token,otp)
-  }, [token,otp]);
+  }, [token]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
