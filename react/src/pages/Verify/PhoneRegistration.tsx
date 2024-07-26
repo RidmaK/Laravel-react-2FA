@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import './index.css'
 
 type Props = {
     getPhoneNumber: (phoneNumber: string) => void;

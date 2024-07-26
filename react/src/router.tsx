@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
 import Verify from "./pages/Verify";
 import { CreateMultiFactorAuthentication } from "./pages/Verify/CreateMultiFactorAuthentication";
+import SequrityData from "./pages/SequrityData";
 
 const route = createBrowserRouter([
   {
@@ -28,8 +29,8 @@ const route = createBrowserRouter([
         element:  <Dashboard />
       },
       {
-        path: '/products',
-        element:  <Product />
+        path: '/sequrity-data',
+        element:  <SequrityData />
       },
     ]
   },

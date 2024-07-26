@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -70,5 +71,23 @@ class AuthController extends Controller
         $request->user()->token()->revoke();
 
         return response(['message' => 'Successfully logged out'], 200);
+    }
+
+
+    /**
+     * Get the total user count.
+     */
+    public function getUserCount()
+    {
+        $userCount = DB::table('users')->count();
+        return response()->json(['count' => $userCount], Response::HTTP_OK);
+    }
+    /**
+     * Get the total user count.
+     */
+    public function getAllSecurityData()
+    {
+        $userCount = DB::table('security_data')->get();
+        return response()->json(['data' => $userCount], Response::HTTP_OK);
     }
 }

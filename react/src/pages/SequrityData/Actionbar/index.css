@@ -1,0 +1,103 @@
+#actionBarComponent .sidebar {
+  width: 540px;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1003;
+  transform: translateX(100%); /* Sidebar is hidden by default */
+}
+
+#actionBarComponent .sidebar a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+#actionBarComponent .sidebar a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#actionBarComponent .sidebar .active {
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust active link background color */
+}
+
+#actionBarComponent .brand-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#actionBarComponent .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#actionBarComponent .sidebar-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex; /* Show the toggle button */
+  float: right;
+}
+.action-header{
+  padding: 1rem;
+  font-size: 25px;
+  font-weight: 400;
+  background-color: rgb(228, 233, 237);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-more{
+    color: black !important;
+    font-size: 12px;
+}
+
+.actionBar-background {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+
+/* Medium devices (tablets, 600px to 768px) */
+@media (max-width: 768px) {
+
+  #actionBarComponent .sidebar {
+    transform: translateX(100%); /* Initially hide the sidebar */
+    width: 340px;
+  }
+
+  #actionBarComponent .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 769px) {
+  #actionBarComponent .sidebar.open {
+    transform: translateX(0); /* Ensure sidebar is visible */
+  }
+
+  #actionBarComponent .sidebar.close {
+    transform: translateX(100%); /* Slide out the sidebar */
+  }
+}

@@ -1,0 +1,19 @@
+.user-table {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.user-table {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    max-width: 100%; /* Ensure it doesn't overflow its container */
+    margin-bottom: 20px; /* Provide some space below the table */
+}
+
+
+@media(max-width: 768px) {
+    .table-table {
+        padding: 0 1rem;
+        max-width: 60%;
+    }
+}
+

@@ -1,0 +1,38 @@
+#users-table .user-action-link {
+    text-decoration: none;
+    font-weight: 800;
+}
+
+#users-table .user-action-link:hover {
+    color: blueviolet;
+}
+
+#users-table  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#users-table  table > thead > tr > th {
+    text-align: left;
+    padding: 0.5rem 0.5rem;
+    background-color: #efefef;
+}
+
+#users-table table > tbody > tr > td {
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid #efefef;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    #users-table .table-container {
+        padding: 0 1rem;
+        max-width: 60%;
+    }
+
+    #users-table table > thead > tr > th,
+    table > tbody > tr > td {
+        padding: 0.3rem 0.3rem;
+    }
+}

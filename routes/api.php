@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\SecurityDataController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,9 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/get-user',[AuthController::class, 'getUser']);
     Route::post('/logout',[AuthController::class, 'logout']);
     Route::apiResource('/users',UserController::class);
-    Route::get('/users/count', [UserController::class, 'getUserCount']);
+    Route::get('/users-count', [AuthController::class, 'getUserCount'])->name('users-count');
+    Route::get('/security-data-all', [AuthController::class, 'getAllSecurityData'])->name('security-data-all');
     Route::apiResource('/products', ProductController::class);
+    Route::apiResource('/security-data', SecurityDataController::class);
 });
 
